@@ -1,0 +1,14 @@
+Library-Management-System/
+│
+├── main.cpp
+├── book.cpp
+├── member.cpp
+├── transaction.cpp
+│
+├── books.txt
+├── members.txt
+├── issued.txt
+│
+├── README.md
+├── CONTRIBUTING.md
+└── .gitignore

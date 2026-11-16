@@ -1,0 +1,6 @@
+Library.exe
+*.o
+*.out
+books_temp.txt
+members_temp.txt
+issued_temp.txt
