@@ -6,7 +6,11 @@ using namespace std;
 void addBook();
 void displayBooks();
 void searchBook();
-void addMember();
+// void addMember();
+// void displayMembers();
+// void issueBook();
+// void returnBook();
+// void displayIssuedBooks();
 
 int main()
 {
@@ -38,7 +42,7 @@ int main()
             searchBook();
             break;
         case 4:
-            addMember();
+            // addMember();
             break;
         case 5:
             // displayMembers();
