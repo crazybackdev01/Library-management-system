@@ -93,3 +93,43 @@ void displayBooks()
         cout << "No books found. Add some books first.\n";
     }
 }
+
+void searchBook()
+{
+    string searchID;
+    cout << "Enter book ID to search: ";
+    getline(cin, searchID);
+
+    ifstream file("books.txt");
+    string line;
+    bool found = false;
+
+    while (getline(file, line))
+    {
+        stringstream ss(line);
+        string id, title, author, total, available;
+
+        getline(ss, id, '|');
+        getline(ss, title, '|');
+        getline(ss, author, '|');
+        getline(ss, total, '|');
+        getline(ss, available, '|');
+
+        if (id == searchID)
+        {
+            cout << "\nBook found!\n";
+            cout << "ID: " << id << "\n";
+            cout << "Title: " << title << "\n";
+            cout << "Author: " << author << "\n";
+            cout << "Total copies: " << total << "\n";
+            cout << "Available copies: " << available << "\n";
+            found = true;
+            break;
+        }
+    }
+
+    if (!found)
+    {
+        cout << "Book not found.\n";
+    }
+}
