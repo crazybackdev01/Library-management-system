@@ -133,3 +133,38 @@ void searchBook()
         cout << "Book not found.\n";
     }
 }
+
+void updateBookCopies(string bookID, int change)
+{
+    ifstream input("books.txt");
+    ofstream output("books_temp.txt");
+
+    string line;
+    while (getline(input, line))
+    {
+        stringstream ss(line);
+        string id, title, author, totalText, availableText;
+
+        getline(ss, id, '|');
+        getline(ss, title, '|');
+        getline(ss, author, '|');
+        getline(ss, totalText, '|');
+        getline(ss, availableText, '|');
+
+        if (id == bookID)
+        {
+            int available = stoi(availableText);
+            available += change;
+            availableText = to_string(available);
+        }
+
+        output << id << "|" << title << "|" << author << "|"
+               << totalText << "|" << availableText << "\n";
+    }
+
+    input.close();
+    output.close();
+
+    remove("books.txt");
+    rename("books_temp.txt", "books.txt");
+}
