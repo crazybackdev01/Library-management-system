@@ -62,3 +62,34 @@ void addBook()
 
     cout << "Book added successfully.\n";
 }
+
+void displayBooks()
+{
+    ifstream file("books.txt");
+    string line;
+    bool found = false;
+
+    cout << "\n--------------- BOOK LIST ---------------\n";
+    cout << "ID\tTitle\t\tAuthor\t\tTotal\tAvailable\n";
+
+    while (getline(file, line))
+    {
+        stringstream ss(line);
+        string id, title, author, total, available;
+
+        getline(ss, id, '|');
+        getline(ss, title, '|');
+        getline(ss, author, '|');
+        getline(ss, total, '|');
+        getline(ss, available, '|');
+
+        cout << id << "\t" << title << "\t\t" << author
+             << "\t\t" << total << "\t" << available << "\n";
+        found = true;
+    }
+
+    if (!found)
+    {
+        cout << "No books found. Add some books first.\n";
+    }
+}
