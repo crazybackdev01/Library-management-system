@@ -4,12 +4,10 @@
 using namespace std;
 
 // Functions implemented in book.cpp
-// Udit's features
 void addBook();
 void displayBooks();
 void searchBook();
 
-// Arpita's features
 // Functions implemented in member.cpp
 void addMember();
 void displayMembers();
