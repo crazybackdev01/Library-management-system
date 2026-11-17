@@ -44,3 +44,28 @@ void addMember() {
 
     cout << "Member registered successfully.\n";
 }
+
+void displayMembers() {
+    ifstream file("members.txt");
+    string line;
+    bool found = false;
+
+    cout << "\n--------------- MEMBER LIST ---------------\n";
+    cout << "ID\tName\t\tPhone\n";
+
+    while (getline(file, line)) {
+        stringstream ss(line);
+        string id, name, phone;
+
+        getline(ss, id, '|');
+        getline(ss, name, '|');
+        getline(ss, phone, '|');
+
+        cout << id << "\t" << name << "\t\t" << phone << "\n";
+        found = true;
+    }
+
+    if (!found) {
+        cout << "No members registered yet.\n";
+    }
+}
