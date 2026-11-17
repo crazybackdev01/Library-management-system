@@ -1,6 +1,6 @@
 # Library Management System (C++)
 
-This project is a collaborative Library Management System built in C++.
+This is a collaborative Library Management System developed using C++ and file handling.
 
 ## Features
 
