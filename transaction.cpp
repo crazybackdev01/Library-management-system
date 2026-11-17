@@ -66,3 +66,69 @@ void issueBook() {
     cout << "Book issued successfully.\n";
 }
 
+void returnBook() {
+    string memberID, bookID;
+
+    cout << "Enter member ID: ";
+    getline(cin, memberID);
+    cout << "Enter book ID to return: ";
+    getline(cin, bookID);
+
+    ifstream input("issued.txt");
+    ofstream output("issued_temp.txt");
+
+    string line;
+    bool returned = false;
+
+    while (getline(input, line)) {
+        stringstream ss(line);
+        string storedMemberID, storedBookID;
+
+        getline(ss, storedMemberID, '|');
+        getline(ss, storedBookID, '|');
+
+        if (!returned && storedMemberID == memberID && storedBookID == bookID) {
+            returned = true;
+            continue; // Do not copy this issue record to the new file.
+        }
+
+        output << line << "\n";
+    }
+
+    input.close();
+    output.close();
+
+    remove("issued.txt");
+    rename("issued_temp.txt", "issued.txt");
+
+    if (returned) {
+        updateBookCopies(bookID, 1);
+        cout << "Book returned successfully.\n";
+    } else {
+        cout << "No matching issued-book record was found.\n";
+    }
+}
+
+void displayIssuedBooks() {
+    ifstream file("issued.txt");
+    string line;
+    bool found = false;
+
+    cout << "\n--------- CURRENTLY ISSUED BOOKS ---------\n";
+    cout << "Member ID\tBook ID\n";
+
+    while (getline(file, line)) {
+        stringstream ss(line);
+        string memberID, bookID;
+
+        getline(ss, memberID, '|');
+        getline(ss, bookID, '|');
+
+        cout << memberID << "\t\t" << bookID << "\n";
+        found = true;
+    }
+
+    if (!found) {
+        cout << "No books are currently issued.\n";
+    }
+}
