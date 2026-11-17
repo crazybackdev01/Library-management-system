@@ -6,11 +6,11 @@ using namespace std;
 void addBook();
 void displayBooks();
 void searchBook();
-// void addMember();
-// void displayMembers();
-// void issueBook();
-// void returnBook();
-// void displayIssuedBooks();
+void addMember();
+void displayMembers();
+void issueBook();
+void returnBook();
+void displayIssuedBooks();
 
 int main()
 {
@@ -42,19 +42,19 @@ int main()
             searchBook();
             break;
         case 4:
-            // addMember();
+            addMember();
             break;
         case 5:
-            // displayMembers();
+            displayMembers();
             break;
         case 6:
-            // issueBook();
+            issueBook();
             break;
         case 7:
-            // returnBook();
+            returnBook();
             break;
         case 8:
-            // displayIssuedBooks();
+            displayIssuedBooks();
             break;
         case 0:
             cout << "Thank you for using the Library Management System!\n";
