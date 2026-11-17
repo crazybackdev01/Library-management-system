@@ -3,11 +3,18 @@
 #include <limits>
 using namespace std;
 
+// Functions implemented in book.cpp
+// Udit's features
 void addBook();
 void displayBooks();
 void searchBook();
+
+// Arpita's features
+// Functions implemented in member.cpp
 void addMember();
 void displayMembers();
+
+// Functions implemented in transaction.cpp
 void issueBook();
 void returnBook();
 void displayIssuedBooks();
@@ -29,6 +36,15 @@ int main()
         cout << "8. Display Issued Books\n";
         cout << "0. Exit\n";
         cout << "Enter your choice: ";
+
+        if (!(cin >> choice))
+        {
+            cout << "Invalid input. Please enter a number.\n";
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            continue;
+        }
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
 
         switch (choice)
         {
