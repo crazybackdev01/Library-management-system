@@ -1,6 +1,6 @@
 # Library Management System (C++)
 
-A console-based Library Management System developed in C++ for the MCA group assignment.
+This project is a collaborative Library Management System built in C++.
 
 ## Features
 
